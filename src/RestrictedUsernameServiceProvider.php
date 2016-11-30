@@ -6,7 +6,7 @@
  * Time: 12:51 AM
  */
 
-namespace Codulab\Username;
+namespace Codulab\RestrictedUsername;
 
 use Illuminate\Support\ServiceProvider;
 use Validator;
