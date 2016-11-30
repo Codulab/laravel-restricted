@@ -21,15 +21,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RestrictedUsernameServiceProvider.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RestrictedUsernameServiceProvider.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RestrictedUsernameServiceProvider.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
+            <state relative-caret-position="187">
+              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
               <folding>
                 <element signature="e#120#159#0#PHP" expanded="true" />
-                <element signature="e#981#1014#0#PHP" expanded="false" />
+                <element signature="e#986#1019#0#PHP" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,8 +73,9 @@
       <list>
         <option value="$PROJECT_DIR$/RestrictedUsernameServiceProvider.php" />
         <option value="$PROJECT_DIR$/resources/config/restricted.php" />
-        <option value="$PROJECT_DIR$/src/RestrictedUsernameServiceProvider.php" />
         <option value="$PROJECT_DIR$/resources/config/usernames.txt" />
+        <option value="$PROJECT_DIR$/src/RestrictedUsernameServiceProvider.php" />
+        <option value="$PROJECT_DIR$/src/.gitignore" />
       </list>
     </option>
   </component>
@@ -209,12 +220,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1480462705677</updated>
-      <workItem from="1480462707206" duration="7308000" />
+      <workItem from="1480462707206" duration="7790000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7308000" />
+    <option name="totallyTimeSpent" value="7790000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="6" y="12" width="1346" height="688" extended-state="0" />
@@ -277,12 +288,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/RestrictedUsernameServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="59" column="21" selection-start-line="59" selection-start-column="21" selection-end-line="59" selection-end-column="21" />
+        <state relative-caret-position="187">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
           <folding>
             <element signature="e#120#159#0#PHP" expanded="true" />
-            <element signature="e#981#1014#0#PHP" expanded="false" />
+            <element signature="e#986#1019#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>

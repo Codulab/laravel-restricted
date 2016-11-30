@@ -25,7 +25,7 @@ class RestrictedUsernameServiceProvider extends ServiceProvider
         $usernames = $this->getRestrictedUsernames();
 
         Validator::extend('restricted', function ($attribute, $value, $parameters, $validator) use ($usernames) {
-            return !$usernames->has($value);
+            return !in_array($value, $usernames);
         }, $this->message);
     }
 
