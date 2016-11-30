@@ -1,0 +1,5 @@
+admin
+index
+user
+password
+route
