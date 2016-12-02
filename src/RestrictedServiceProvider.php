@@ -16,12 +16,14 @@ use Codulab\Restricted\Commands\CrawlRoutes;
 class RestrictedServiceProvider extends ServiceProvider
 {
     protected $message = 'That :attribute is taken. Please try another!';
+    protected $fileName;
 
     /**
      * Publishes the config files.
      */
     public function boot()
     {
+        $this->fileName = config('restricted.crawl_level') ?: public_path("restricted-usernames.txt");
         $this->initialize();
     }
 
@@ -62,7 +64,7 @@ class RestrictedServiceProvider extends ServiceProvider
      */
     public function getRestrictedUsernames()
     {
-        $path = public_path('restricted-usernames.txt');
+        $path = $this->fileName;
         $data = explode("\r\n", file_get_contents($path));
         $data = array_map(function($value){
             return preg_replace("/\s/", "", $value);

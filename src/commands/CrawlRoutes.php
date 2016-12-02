@@ -102,7 +102,7 @@ class CrawlRoutes extends Command
     }
 
     function store($routes){
-        $fileName = public_path("restricted-usernames.txt");
+        $fileName = $this->fileName;
 
         $input = implode("\r\n", $routes);
         $file = fopen($fileName, 'w+');
