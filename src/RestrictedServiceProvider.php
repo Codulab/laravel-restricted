@@ -13,7 +13,7 @@ use Validator;
 use Codulab\Restricted\Commands\CrawlRoutes;
 
 
-class RestrictedUsernameServiceProvider extends ServiceProvider
+class RestrictedServiceProvider extends ServiceProvider
 {
     protected $message = 'That :attribute is taken. Please try another!';
 
@@ -22,12 +22,7 @@ class RestrictedUsernameServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $message = $this->getMessage();
-        $usernames = $this->getRestrictedUsernames();
-
-        Validator::extend('restricted', function ($attribute, $value, $parameters, $validator) use ($usernames) {
-            return !in_array($value, $usernames);
-        }, $this->message);
+        $this->initialize();
     }
 
     /**
@@ -46,7 +41,20 @@ class RestrictedUsernameServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return ['laravel-username'];
+        return ['restricted'];
+    }
+
+    /**
+     * @return void
+     */
+    public function initialize()
+    {
+        $message = $this->getMessage();
+        $usernames = $this->getRestrictedUsernames();
+
+        Validator::extend('restricted', function ($attribute, $value, $parameters, $validator) use ($usernames) {
+            return !in_array($value, $usernames);
+        }, $this->message);
     }
 
     /**
@@ -69,4 +77,5 @@ class RestrictedUsernameServiceProvider extends ServiceProvider
     {
         return $this->message;
     }
+
 }

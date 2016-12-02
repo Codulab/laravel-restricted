@@ -82,8 +82,7 @@ class CrawlRoutes extends Command
         $data = [];
 
         foreach ($routeCollection as $route) {
-            // incase we want to crawle more than the first segment
-            // we will do so by increasing the loop
+            
             $limit = config('restricted.index_level') ?: 1;
             $paths = explode('/', $route->getPath());
 
