@@ -31,3 +31,16 @@ php artisan vendor:publish --tag=restricted_config
 
 ## Usage
 
+First, we need to crawl and index the application routes by running the command:
+
+```
+php artisan restricted:index
+```
+Now, you can simply add restricted to your validations like so:
+
+```php
+    $this->validate($request, [
+        'name' => 'required|string|min:5',
+        'username' => 'required|restricted'
+    ]);
+```
