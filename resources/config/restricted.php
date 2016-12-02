@@ -7,13 +7,9 @@
  */
 
 return [
-    'message' =>'That username is taken. Please try another!',
-    'usernames'=>'
 
-admin
-index
-user
-password
-route
+    'file_path' => public_path("restricted-usernames.txt"),
 
-'];
+    'index_level' => 2,
+
+ ];

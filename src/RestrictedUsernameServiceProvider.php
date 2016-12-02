@@ -6,15 +6,16 @@
  * Time: 12:51 AM
  */
 
-namespace Codulab\RestrictedUsername;
+namespace Codulab\Restricted;
 
 use Illuminate\Support\ServiceProvider;
 use Validator;
+use Codulab\Restricted\Commands\CrawlRoutes;
 
 
 class RestrictedUsernameServiceProvider extends ServiceProvider
 {
-    protected $message = 'That username is taken. Please try another!';
+    protected $message = 'That :attribute is taken. Please try another!';
 
     /**
      * Publishes the config files.
@@ -35,6 +36,7 @@ class RestrictedUsernameServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        $this->commands(CrawlRoutes::class);
     }
 
     /**
@@ -52,7 +54,7 @@ class RestrictedUsernameServiceProvider extends ServiceProvider
      */
     public function getRestrictedUsernames()
     {
-        $path = public_path('usernames.txt');
+        $path = public_path('restricted-usernames.txt');
         $data = explode("\r\n", file_get_contents($path));
         $data = array_map(function($value){
             return preg_replace("/\s/", "", $value);
@@ -65,6 +67,6 @@ class RestrictedUsernameServiceProvider extends ServiceProvider
      */
     public function getMessage()
     {
-        return config('restricted.message') ?: $this->message;
+        return $this->message;
     }
 }
