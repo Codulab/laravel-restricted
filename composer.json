@@ -1,11 +1,11 @@
 {
     "name": "codulab/restricted",
-    "description": "Restricts registrations when a user's attribute matches a configured restriction",
+    "description": "Restricts registration when a user's input (eg: username) matches a configured restricted words",
     "license": "MIT",
     "authors": [
         {
-            "name": "Emmy",
-            "email": "ajemeke@gmail.com"
+            "name": "Codulab",
+            "email": "build@codulab.com"
         }
     ],
     "require": {}
