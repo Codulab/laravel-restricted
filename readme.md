@@ -44,3 +44,7 @@ Now, you can simply add restricted to your validations like so:
         'username' => 'required|restricted'
     ]);
 ```
+
+## License
+
+MIT license - free to use and abuse!

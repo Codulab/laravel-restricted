@@ -23,6 +23,10 @@ class RestrictedServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->publishes([
+            __DIR__.'/../resources/config/restricted.php' => config_path('restricted.php'),
+        ], 'restricted_config');
+
         $this->fileName = config('restricted.crawl_level') ?: public_path("restricted-usernames.txt");
         $this->initialize();
     }
