@@ -8,5 +8,10 @@
             "email": "build@codulab.com"
         }
     ],
-    "require": {}
+    "require": {},    
+    "autoload": {
+        "psr-4": {
+            "Codulab\\Restricted\\": "src/"
+        }
+    },
 }

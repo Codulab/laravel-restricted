@@ -72,7 +72,7 @@ class CrawlRoutes extends Command
      */
     public function handle()
     {
-        $this->line($this->crawl() .' words indexed from this crawl');
+        $this->info($this->crawl() .' words indexed from this crawl');
     }
 
     public function crawl()
@@ -95,16 +95,16 @@ class CrawlRoutes extends Command
             }
         }
 
-        $data = collect($data)->unique()->sort()->all();
+        $data = collect($data)->unique()->sort();
         $this->store($data);
 
-        return count($data);
+        return $data->count();
     }
 
     function store($routes){
         $fileName = $this->fileName;
 
-        $input = implode("\r\n", $routes);
+        $input = $routes->implode("\r\n");
         $file = fopen($fileName, 'w+');
         fwrite($file, $input);
         fclose($file);

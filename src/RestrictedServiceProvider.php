@@ -55,25 +55,24 @@ class RestrictedServiceProvider extends ServiceProvider
      */
     public function initialize()
     {
-        $message = $this->getMessage();
         $usernames = $this->getRestrictedUsernames();
 
         Validator::extend('restricted', function ($attribute, $value, $parameters, $validator) use ($usernames) {
-            return !in_array($value, $usernames);
-        }, $this->message);
+            return ! $usernames->contains($value);
+        }, $this->getMessage());
     }
 
     /**
-     * @return string
+     * @return collection
      */
     public function getRestrictedUsernames()
     {
         $path = $this->fileName;
-        $data = explode("\r\n", file_get_contents($path));
-        $data = array_map(function($value){
-            return preg_replace("/\s/", "", $value);
-        }, $data);
-        return $data;
+        $content = file_get_contents($path);
+        return collect(explode("\r\n", $content))
+                ->map(function($value){
+                    return preg_replace("/\s/", "", $value);
+                });
     }
 
     /**
