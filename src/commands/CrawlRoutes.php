@@ -95,7 +95,7 @@ class CrawlRoutes extends Command
             }
         }
 
-        $data = collect($data)->unique()->sort();
+        $data = collect($data)->unique();
         $this->store($data);
 
         return $data->count();
@@ -103,8 +103,15 @@ class CrawlRoutes extends Command
 
     function store($routes){
         $fileName = $this->fileName;
+        if(config('restricted.merge') && file_exists($fileName)){
+            $old = collect(explode("\r\n", file_get_contents($fileName)))
+                    ->map(function($value){
+                        return preg_replace("/\s/", '', $value);
+                    })->all();
+            $routes->merge($old);
+        }
 
-        $input = $routes->implode("\r\n");
+        $input = $routes->unique()->sort()->implode("\r\n");
         $file = fopen($fileName, 'w+');
         fwrite($file, $input);
         fclose($file);
