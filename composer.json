@@ -8,7 +8,9 @@
             "email": "build@codulab.com"
         }
     ],
-    "require": {},    
+    "require": {
+        "php" : "~5.6|~7.0"
+    },  
     "autoload": {
         "psr-4": {
             "Codulab\\Restricted\\": "src/"
