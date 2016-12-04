@@ -1,6 +1,12 @@
 {
     "name": "codulab/restricted",
+    "type": "library",
     "description": "Restricts registration when a user's input (eg: username) matches a configured restricted words",
+    "keywords": [
+        "username",
+        "restricted",
+        "security"
+    ],
     "license": "MIT",
     "authors": [
         {
