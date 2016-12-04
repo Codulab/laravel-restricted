@@ -68,11 +68,15 @@ class RestrictedServiceProvider extends ServiceProvider
     public function getRestrictedUsernames()
     {
         $path = $this->fileName;
-        $content = file_get_contents($path);
-        return collect(explode("\r\n", $content))
-                ->map(function($value){
-                    return preg_replace("/\s/", "", $value);
-                });
+        if(file_exists($path)){
+            $content = file_get_contents($path);
+            return collect(explode("\r\n", $content))
+                    ->map(function($value){
+                        return preg_replace("/\s/", "", $value);
+                    });
+        }else{
+            return collect([]);
+        }
     }
 
     /**

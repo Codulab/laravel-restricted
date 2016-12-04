@@ -103,12 +103,13 @@ class CrawlRoutes extends Command
 
     function store($routes){
         $fileName = $this->fileName;
+
         if(config('restricted.merge') && file_exists($fileName)){
             $old = collect(explode("\r\n", file_get_contents($fileName)))
                     ->map(function($value){
                         return preg_replace("/\s/", '', $value);
                     })->all();
-            $routes->merge($old);
+            $routes = $routes->merge($old);
         }
 
         $input = $routes->unique()->sort()->implode("\r\n");
