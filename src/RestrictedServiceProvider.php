@@ -27,7 +27,7 @@ class RestrictedServiceProvider extends ServiceProvider
             __DIR__.'/../resources/config/restricted.php' => config_path('restricted.php'),
         ], 'restricted_config');
 
-        $this->fileName = config('restricted.crawl_level') ?: public_path("restricted-usernames.txt");
+        $this->fileName = config('restricted.crawl_level') ?: public_path("reserved.txt");
         $this->initialize();
     }
 

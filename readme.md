@@ -1,9 +1,13 @@
 # Restricted
 
-Restricted allows you to restrict your users from signing up with certain usernames.
-For example, you have this route: www.mywebsite.com/admincpanel
+Restricted allows you to restrict your users from signing up with reserved words.
+
+Reserved words can be:
+
+1. Your route segments - Example, you have this route: www.mywebsite.com/login
 and your application allows to view user profile like this: www.mywebsite.com/username
-This package can crawl all your routes and return a validation message when a user tries to register with such words like "admincpanel"
+This package can crawl all your routes and return a validation message when a user tries to register with such words like "login"
+2. Words you just want to reserve - Example: cart, products, admin etc. These words can  be added manually to the reserved.txt file. after running the "restricted:index" command.
 
 ## Installation
 

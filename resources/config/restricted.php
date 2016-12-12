@@ -11,7 +11,7 @@ return [
     | 
     |
     */
-    'file_path' => public_path("restricted-usernames.txt"),
+    'file_path' => public_path("reserved.txt"),
 
     /*
     |--------------------------------------------------------------------------
@@ -32,7 +32,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | Do you want to merge the new result with the old one?
-    | 
+    | It is recommended to set this to "true" if you 
+    | manually added some words to the txt file. So as not to loss them.
     |
     */
     'merge' => true,

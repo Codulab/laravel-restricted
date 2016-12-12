@@ -60,7 +60,7 @@ class CrawlRoutes extends Command
 
         $this->router = $router;
         $this->routes = $router->getRoutes();
-        $this->fileName = config('restricted.crawl_level') ?: public_path("restricted-usernames.txt");
+        $this->fileName = config('restricted.crawl_level') ?: public_path("reserved.txt");
     }
 
 
