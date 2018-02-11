@@ -15,7 +15,7 @@ use Codulab\Restricted\Commands\CrawlRoutes;
 
 class RestrictedServiceProvider extends ServiceProvider
 {
-    protected $message = 'That :attribute is taken. Please try another!';
+    protected $message = 'That :attribute is not available. Please try another!';
     protected $fileName;
 
     /**
@@ -70,7 +70,7 @@ class RestrictedServiceProvider extends ServiceProvider
         $path = $this->fileName;
         if(file_exists($path)){
             $content = file_get_contents($path);
-            return collect(explode("\r\n", $content))
+            return collect(explode(PHP_EOL, $content))
                     ->map(function($value){
                         return preg_replace("/\s/", "", $value);
                     });
