@@ -84,7 +84,7 @@ class CrawlRoutes extends Command
         foreach ($routeCollection as $route) {
             
             $limit = config('restricted.index_level') ?: 1;
-            $paths = explode('/', $route->getPath());
+            $paths = explode('/', $route->uri());
 
             foreach ($paths as $i => $path) {
                 if($i >= $limit)
