@@ -58,12 +58,12 @@ class CrawlRoutes extends Command
     {
         parent::__construct();
 
+        // todo:: replace helper methods
+
         $this->router = $router;
         $this->routes = $router->getRoutes();
         $this->fileName = config('restricted.file_path') ?: public_path("reserved.txt");
     }
-
-
 
     /**
      * Execute the console command.
@@ -105,14 +105,15 @@ class CrawlRoutes extends Command
         $fileName = $this->fileName;
 
         if(config('restricted.merge') && file_exists($fileName)){
-            $old = collect(explode("\r\n", file_get_contents($fileName)))
+            $old = collect(explode(PHP_EOL, file_get_contents($fileName)))
                     ->map(function($value){
-                        return preg_replace("/\s/", '', $value);
+                        return trim($value);
                     })->all();
             $routes = $routes->merge($old);
         }
 
-        $input = $routes->unique()->sort()->implode("\r\n");
+        $input = $routes->unique()->sort()->implode(PHP_EOL);
+
         $file = fopen($fileName, 'w+');
         fwrite($file, $input);
         fclose($file);
